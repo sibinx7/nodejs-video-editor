@@ -1,10 +1,10 @@
 extends ../layout 
 block content 
   .container 
-    - if video_path 
+     if video_path 
       .video-box.p-4
         video(src=video_path, type="video/mp4")
-    - else 
+     else 
       .card 
         .card-body 
-          = message 
+          p Some errors

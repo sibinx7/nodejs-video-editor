@@ -1,4 +1,5 @@
 var path = require("path");
+var fs = require("fs");
 var multer = require("multer");
 var ffmpeg = require("fluent-ffmpeg");
 
@@ -6,6 +7,9 @@ var uploadPath = path.join(__dirname, "../videos");
 var storage = multer.diskStorage({
   destination: function(req, res, cb){
     console.log("Inside multer destination function...")
+    if(!fs.existsSync(uploadPath)){
+      fs.mkdirSync(uploadPath);
+    }
     cb(null, uploadPath)
   },
   filename: function(req, file, cb){
@@ -29,7 +33,7 @@ var EditorController = {
       var videoID = 102;
       videoEditorFile(req, res, function(err){
         if(!err){
-          res.redirect("/editor/video?video-file="+102);    
+          res.redirect("/editor/video");    
         }else{
           throw new Error("Upload error")
         }
@@ -45,7 +49,7 @@ var EditorController = {
     var video_path = path.join(__dirname, "../videos/sample-video.mp4");
     try{
       ffmpeg(video_path)
-      .setStartTime("00:05:00")
+      .setStartTime("00:00:00")
       .setDuration('60')      
       .on("progress", function(){
         console.log("Progress information")
