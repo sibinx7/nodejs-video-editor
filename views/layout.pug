@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap-custom.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href='/stylesheets/main.css')
+  body
+    include partials/_header
+    .body__content 
+      .container 
+        block content

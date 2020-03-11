@@ -1,0 +1,13 @@
+extends ../layout 
+block content 
+  .video__form 
+    .row 
+      .col-12.col-md-8.col-lg-6.mr-auto.ml-auto  
+        form(action="/editor/video-upload", method="post", enctype="multipart/form-data") 
+          .form-group 
+            label Video file 
+            input.form-control(name="video_file", type="file")
+          .form-group
+            button.btn.btn-primary(type="submit") Upload 
+
+
