@@ -22,7 +22,7 @@
     "pug": "2.0.4"
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "node-sass-middleware": "^0.11.0",
     "winston": "^3.2.1"
   }
